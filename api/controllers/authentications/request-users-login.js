@@ -11,7 +11,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 exports.post_request_users_login = (req, res, next) => {
-  console.log("[ DEBUG 2 ] request_users_login");
+  console.log("[DEBUG 2]\t request_users_login");
 
   //CODE chake if email is registered
   authenticationsDB
@@ -21,7 +21,7 @@ exports.post_request_users_login = (req, res, next) => {
       select: "_id users_name email",
     })
     .then((result) => {
-      console.log(result);
+      console.log("[DEBUG 2]\t"+ result);
 
       //CODE cahke if email is verified
       //FIXME  if it not verified it will be an error use "!" on if() block || use : if (!result[0].email_verified)
@@ -36,7 +36,7 @@ exports.post_request_users_login = (req, res, next) => {
       bcrypt
         .compare(req.body.password, result[0].password)
         .then((passwd) => {
-          console.log(passwd);
+          console.log("[DEBUG 2]\t"+passwd);
           if (!passwd) {
             const err = new Error("password not match");
             err.status = 401;
@@ -47,13 +47,13 @@ exports.post_request_users_login = (req, res, next) => {
           let payload = {
             email: result[0].email,
             _user_id: result[0]._users_id._id,
-            users_name: result[0].users_name,
+            users_name: result[0]._users_id.users_name,
           };
 
           let accessSignOptions = {
             issuer: "shattak",
             audience: "http://shattak.com",
-            expiresIn: "60",
+            expiresIn: "10m",
           };
           let refreshSignOptions = {
             issuer: "shattak",
@@ -73,27 +73,27 @@ exports.post_request_users_login = (req, res, next) => {
               refreshSignOptions
             );
 
-            
-
             res.status(200).json({
               massage: "login succesfull",
               access,
               refresh,
             });
           } catch (err) {
-            console.log(err);
+            console.log("[ERROR 10]\t" + err);
             err.status = 502;
             return next(err);
           }
         })
+
+        
         .catch((error) => {
-          console.log("[ERROR 104]\t" + "");
+          console.log("[ERROR 104]\t" + error);
           error.status = 502;
           return next(error);
         });
     })
     .catch((error) => {
-      console.log("[ERROR ]\t" + "");
+      console.log("[ERROR ]\t" + error);
       error.status = 502;
       return next(error);
     });

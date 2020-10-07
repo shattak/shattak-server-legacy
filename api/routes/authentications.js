@@ -1,7 +1,10 @@
 const express = require("express");
-const { userValidationRules, validate } = require('../middleware/validator/authentications')
+const {
+  userValidationRules,
+  validate,
+} = require("../middleware/validator/authentications");
 const router = express.Router();
-
+const jwtauth = require("../middleware/security/jwtauth");
 
 const change_users_password = require("../controllers/authentications/change-users-password");
 router.put(
@@ -24,6 +27,7 @@ router.post(
 const request_users_logout = require("../controllers/authentications/request-users-logout ");
 router.post(
   "/request-users-logout",
+  // jwtauth,
   request_users_logout.post_request_users_logout
 );
 
