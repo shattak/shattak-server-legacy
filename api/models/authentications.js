@@ -7,10 +7,12 @@ const authentications = new Schema({
     type: Schema.Types.ObjectId,
     required: true,
     ref: "users",
+    unique: true
   },
   email: {//
     type: String,
     required: true,
+    unique: true
   },
   email_verified: {
     type: Boolean,
@@ -20,6 +22,7 @@ const authentications = new Schema({
     type: String,
     required: true,
   },
+  
 });
  
 module.exports = mongoose.model("authentications", authentications);

@@ -17,10 +17,12 @@ const users = mongoose.Schema({
     //
     type: String,
     required: true,
+    unique: true
   },
   email: {
     type: String,
     required: true,
+    unique: true
   },
   phone_number: {
     type: Number,
