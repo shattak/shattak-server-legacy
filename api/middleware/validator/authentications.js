@@ -1,23 +1,24 @@
 const { body, validationResult } = require("express-validator");
 
+
+
 const userValidationRules = (route) => {
+
   switch (route) {
     case "request-users-registration":
-      console.log("[DEBUG 7]\trequest-users-registration");
+      console.log("[VALIDATE 7]\t"+route+" -validation");
       return [
-        body("email").isEmail(),        
+        body("email").isEmail(),
         body("first_name"),
         body("last_name"),
         body("date_of_birth"),
         body("password").isLength({ min: 5 }).withMessage('must be at least 5 chars long'),
       ];
-    case "rourt-name ":
-      console.log("[DEBUG 7]\texample");
+    case "request-users-login":
+      console.log("[DEBUG 7]\trequest-users-login");
       return [
-        // username must be an email
-        body("username").isEmail(),
-        // password must be at least 5 chars long
-        body("password").isLength({ min: 5 }),
+        body("email").isEmail(),
+        body("password").isString()
       ];
   }
 };

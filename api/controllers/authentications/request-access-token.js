@@ -1,7 +1,7 @@
 /**
  DONE  requst: token form users  
- TODO  chake : if token then valided 
- TODO  chake : if valide token then sing a new access token  
+ DONE  chake : if token then valided 
+ DONE  chake : if valide token then sing a new access token  
  */
 
 const jwt = require("jsonwebtoken");

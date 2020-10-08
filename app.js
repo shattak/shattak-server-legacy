@@ -51,12 +51,10 @@ mongoose
     console.log(errors);
   });
 
-//routes api
-
+//api routes 
 app.use("/api/authentications",require("./api/routes/authentications"))
-
-// app.use("/api/users",require("./api/routes/users"))
-// app.use("/api/notes",require("./api/routes/notes"))
+app.use("/api/users",require("./api/routes/users"))
+app.use("/api/notes",require("./api/routes/notes"))
 
 
 
@@ -80,6 +78,7 @@ app.use((req, res, next) => {
 
 // error handeller
 app.use((error, req, res, next) => {
+  console.log("[ERROR HANDELLER]\t"+error);
   res.status(error.status || 500).json({
     error: {
       massage: error.message,
