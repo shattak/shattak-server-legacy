@@ -65,6 +65,7 @@ exports.post_request_users_registration = (req, res, next) => {
                   last_name: req.body.last_name,
                   email: req.body.email,
                   date_of_birth: req.body.date_of_birth,
+                  gender: req.body.gender
                 });
                 //CODE saveing users document in users
                 users

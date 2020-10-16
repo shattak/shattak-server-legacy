@@ -5,7 +5,10 @@ const {
   userValidationRules,
   validate,
 } = require("../middleware/validator/authentications");
+
 const jwtauth = require("../middleware/security/jwtauth");
+
+
 
 //ROUTE     POST     add-cover-photo
 const add_cover_photo = require("../controllers/users/add-cover-photo");

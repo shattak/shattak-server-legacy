@@ -26,8 +26,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // CORS server configuration
-// var cors = require("cors");
-// app.use(cors());
+ var cors = require("cors");
+ app.use(cors());
 
 //database
 mongoose = require("mongoose");
@@ -85,5 +85,4 @@ app.use((error, req, res, next) => {
     },
   });
 });
-
 module.exports = app;
