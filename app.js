@@ -22,8 +22,10 @@ const morgan = require("morgan");
 app.use(morgan("dev"));
 
 // express json Parser
-app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+
 
 // CORS server configuration
  var cors = require("cors");
@@ -37,6 +39,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
+    useCreateIndex: true,
   })
   .then(() => {
     console.log(

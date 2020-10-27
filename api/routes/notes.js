@@ -19,7 +19,7 @@ const remove_notes_by_id  = require("../controllers/notes/remove-notes-by-id");
 router.delete("/remove-notes-by-id",remove_notes_by_id.delete_remove_notes_by_id);
 
 //ROUTE     POST     users-upload-notes     
-const users_upload_notes  = require("../controllers/notes/users-upload-notes");
-router.post("/users-upload-notes",users_upload_notes.post_users_upload_notes);
+const users_upload_single_notes  = require("../controllers/notes/users-upload-single-notes");
+router.post("/users-upload-notes",users_upload_single_notes.post_users_upload_single_notes);
 
 module.exports = router;

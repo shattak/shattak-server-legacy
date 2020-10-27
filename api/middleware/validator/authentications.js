@@ -6,7 +6,7 @@ const userValidationRules = (route) => {
 
   switch (route) {
     case "request-users-registration":
-      console.log("[VALIDATE 7]\t"+route+" -validation");
+      console.log("[VALIDATE 7]\t"+route);
       return [
         body("email").isEmail(),
         body("first_name"),
@@ -15,7 +15,7 @@ const userValidationRules = (route) => {
         body("password").isLength({ min: 5 }).withMessage('must be at least 5 chars long'),
       ];
     case "request-users-login":
-      console.log("[DEBUG 7]\trequest-users-login");
+      console.log("[VALIDATE 18]\trequest-users-login");
       return [
         body("email").isEmail(),
         body("password").isString()
