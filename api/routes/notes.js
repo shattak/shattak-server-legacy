@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const jwtauth = require("../middleware/security/jwtauth");
 
 //ROUTE     PUT      edit-notes-info-by-id  
 const  edit_notes_info_by_id  = require("../controllers/notes/edit-notes-info-by-id");
@@ -18,8 +18,8 @@ router.get("/fetch-notes-by-id",fetch_notes_by_id.get_fetch_notes_by_id);
 const remove_notes_by_id  = require("../controllers/notes/remove-notes-by-id");
 router.delete("/remove-notes-by-id",remove_notes_by_id.delete_remove_notes_by_id);
 
-//ROUTE     POST     users-upload-notes     
+//ROUTE     POST    users_upload_single_notes     
 const users_upload_single_notes  = require("../controllers/notes/users-upload-single-notes");
-router.post("/users-upload-notes",users_upload_single_notes.post_users_upload_single_notes);
+router.post("/users-upload-single-notes", jwtauth ,users_upload_single_notes.post_users_upload_single_notes);
 
 module.exports = router;

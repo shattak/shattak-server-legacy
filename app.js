@@ -31,11 +31,24 @@ app.use(express.json());
  var cors = require("cors");
  app.use(cors());
 
+
+//  const MongoClient = require('mongodb').MongoClient;
+//  const uri = "mongodb+srv://shattak-api:TG8MVUUSGcgMNn8H@shattak.gwo47.mongodb.net/<dbname>?retryWrites=true&w=majority";
+//  const client = new MongoClient(uri, { useNewUrlParser: true });
+//  client.connect(err => {
+//    const collection = client.db("test").collection("devices");
+//    // perform actions on the collection object
+//    client.close();
+//  });
+ 
+
+
+
 //database
 mongoose = require("mongoose");
 mongoose.pluralize(null);
 mongoose
-  .connect("mongodb://localhost:27017/shattak", {
+  .connect(process.env.MONGO_DB_CONNECTION, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -58,6 +71,9 @@ mongoose
 app.use("/api/authentications",require("./api/routes/authentications"))
 app.use("/api/users",require("./api/routes/users"))
 app.use("/api/notes",require("./api/routes/notes"))
+
+// Management rought v1
+app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
 
 
 

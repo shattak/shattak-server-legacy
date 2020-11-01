@@ -53,7 +53,7 @@ exports.post_request_users_login = (req, res, next) => {
           let accessSignOptions = {
             issuer: "shattak",
             audience: "http://shattak.com",
-            expiresIn: "10m",
+            expiresIn: "10d",
           };
           let refreshSignOptions = {
             issuer: "shattak",
