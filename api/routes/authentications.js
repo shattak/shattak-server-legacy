@@ -6,7 +6,7 @@ const {
   userValidationRules,
   validate,
 } = require("../middleware/validator/authentications");
-
+ 
 const jwtauth = require("../middleware/security/jwtauth");
 
 //ROUTE   put   authentications // change-users-password
@@ -39,7 +39,7 @@ router.post(
   // jwtauth,
   request_users_logout.post_request_users_logout
 );
-
+ 
 //ROUTE   post  authentications // request_users_registration
 const request_users_registration = require("../controllers/authentications/request-users-registration");
 router.post(

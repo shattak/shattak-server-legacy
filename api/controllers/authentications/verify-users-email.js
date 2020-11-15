@@ -30,7 +30,7 @@ exports.post_verify_users_email = (req, res, next) => {
 
       if (result[0].email_verified ) {
         res.status().json({
-          massage: "You are alrady verified",
+          massage: "You are already verified",
         });
       } else {
         console.log("------------------==++++++++++++++");
