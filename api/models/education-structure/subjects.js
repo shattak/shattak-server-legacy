@@ -15,7 +15,6 @@ const subjects = new Schema({
   },
   paper_code: {
     type: String,
-
     required : true,
   },
   syllabus: {
@@ -23,5 +22,8 @@ const subjects = new Schema({
     required : true,
   },
 });
+ 
+subjects.index({ paper_code: 1, _departments_id: 1 }, { unique: true })
 
 module.exports = mongoose.model("subjects", subjects);
+
