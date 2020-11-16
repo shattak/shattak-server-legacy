@@ -4,12 +4,12 @@ exports.post_fetch_subjects_info_with_id = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch_boards_info_with_id");
   console.log(req.body._id);
 
-  if (typeof req.body._id === "undefined" && typeof req.body._department_id === "undefined") {
+  if (typeof req.body._id === "undefined" && typeof req.body._departments_id === "undefined") {
     var query = {};
   } else {
     var query = {
    
-      _department_id :  req.body._department_id
+      _departments_id :  req.body._departments_id
     };
   }
 

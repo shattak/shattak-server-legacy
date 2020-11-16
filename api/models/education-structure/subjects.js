@@ -4,10 +4,9 @@ const { Schema } = mongoose;
 const subjects = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
 
-  _department_id: {
+  _departments_id: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "department",
-    unique:true,
+    ref: "departments",
     required : true,
   },
   name: {
@@ -16,7 +15,7 @@ const subjects = new Schema({
   },
   paper_code: {
     type: String,
-    unique:true,
+
     required : true,
   },
   syllabus: {

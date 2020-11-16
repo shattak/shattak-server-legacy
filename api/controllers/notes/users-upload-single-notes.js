@@ -120,17 +120,16 @@ exports.post_users_upload_single_notes = (req, res, next) => {
       console.log(req.file);
       const notes = new notesDB({
         _id: mongoose.Types.ObjectId(),
+        
         _users_id: decoded.payload._user_id, 
 
+        _institutes_id : req.body._institutes_id,
+        _departments_id: req.body._departments_id,
+        _subjects_id: req.body._subjects_id,
         topic_name: req.body.topic_name,
-        subject_name: req.body.subject_name,
-        _institute_id: req.body._institute_id,
+        level: req.body.level,
+        field: req.body.field,
         tag: [],
-        category: {
-          level: req.body.level,
-          field: req.body.field,
-          department: req.body.department,
-        },
         files: [
           {
             fieldname: req.file.fieldname,

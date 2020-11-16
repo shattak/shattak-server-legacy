@@ -1,4 +1,4 @@
-const courseDB = require("../../models/education-structure/course");
+const coursesDB = require("../../models/education-structure/courses");
 
 exports.post_fetch_course_info_with_id = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch-course-info-with-id");
@@ -6,18 +6,18 @@ exports.post_fetch_course_info_with_id = (req, res, next) => {
   // console.log("req.body._institute_id == "+ req.params._institute_id );
 
 
-  if (typeof req.body._institute_id === "undefined") {
+  if (typeof req.body._institutes_id === "undefined") {
     var query = {};
   } else {
     var query = {
-      _institute_id : req.body._institute_id,
+      _institutes_id : req.body._institutes_id,
     };
   }
 
-  courseDB
+  coursesDB
     .find(query)
     .populate({
-      path: "_department_id",
+      path: "_departments_id",
       select: "name",
     })
     .exec()

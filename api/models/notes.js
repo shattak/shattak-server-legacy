@@ -9,35 +9,40 @@ const notes = new Schema({
     ref: "users",
     required: true,
   },
+  _institutes_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "institutes",
+  },
+  _departments_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "departments",
+  },
+  _subjects_id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "subjects",
+  },
   topic_name: {
     type: String,
+    required: true,
   },
-  subject_name: {
+  level: {
     type: String,
+  
   },
+  field: {
+    type: String,
+
+  },
+
   tag: [
     {
       type: String,
     },
   ],
-  _institute_id: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "institute",
-  },
 
-  category: {
-    level: {
-      type: String,
-      required: true,
-    },
-    field: {
-      type: String,
-      required: true,
-    },
-    department: {
-      type: String,
-      required: true,
-    },
+  notes_verified: {
+    type: Boolean,
+    default: false,
   },
 
   files: [
@@ -59,11 +64,6 @@ const notes = new Schema({
       },
     },
   ],
-
-  notes_verified: {
-    type: Boolean,
-    default: false,
-  },
 });
 
 module.exports = mongoose.model("notes", notes);

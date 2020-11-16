@@ -9,7 +9,13 @@ exports.get_fetch_all_notes_info = (req, res, next) => {
       select: "users_name email",
     })
     .populate({
-      path: "_institute_id",
+      path: "_institutes_id",
+    })
+    .populate({
+      path: "_departments_id",
+    })
+    .populate({
+      path: "_subjects_id",
     })
     .exec()
     .then((result) => {

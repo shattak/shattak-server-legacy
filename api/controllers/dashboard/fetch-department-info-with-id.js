@@ -1,4 +1,4 @@
-const departmentDB = require("../../models/education-structure/department");
+const departmentsDB = require("../../models/education-structure/departments");
 
 exports.post_fetch_department_info_with_id = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch_boards_info_with_id");
@@ -12,7 +12,7 @@ exports.post_fetch_department_info_with_id = (req, res, next) => {
     };
   }
 
-  departmentDB
+  departmentsDB
     .find(query)
     .exec()
     .then((result) => {

@@ -1,18 +1,17 @@
-const instituteDB = require("../../models/education-structure/institutes");
+const institutesDB = require("../../models/education-structure/institutes");
 
 exports.post_add_institute = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "post_add_institute ");
 
   
 
-  const institute = new instituteDB({
+  const institutes = new institutesDB({
     _id: mongoose.Types.ObjectId(),
     name: req.body.name,
-    _board_id: req.body._board_id,
-    _department_id: req.body._department_id,
+    _boards_id: req.body._boards_id,
   });
 
-  institute
+  institutes
     .save()
     .then((result) => {
       res.status(200).json({
@@ -24,14 +23,3 @@ exports.post_add_institute = (req, res, next) => {
     });
 };
 
-// {
-//   department: [
-//     {
-//       _department_id: {
-//         type: mongoose.Schema.Types.ObjectId,
-//         ref: "department",
-//       },
-//     },
-//   ],
-
-// }

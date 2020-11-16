@@ -22,10 +22,11 @@ const users = mongoose.Schema({
   },
   gender:{
     type: String,
-    enum: ["male","female","other"]
+    enum: ["male","female","others"]
   },
   phone_number: {
     type: Number,
+    unique: true,
   },
   date_of_birth: {
     type: Date,

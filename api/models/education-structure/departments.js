@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const department = new Schema({
+const departments = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
   name: {
     type: String,
@@ -15,5 +15,5 @@ const department = new Schema({
   },
 });
 
-module.exports = mongoose.model("department", department);
+module.exports = mongoose.model("departments", departments);
 

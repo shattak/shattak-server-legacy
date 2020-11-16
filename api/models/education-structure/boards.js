@@ -8,7 +8,6 @@ const boards = new Schema({
     unique : true,
     required: true
   },
-  
 });
 
 module.exports = mongoose.model("boards", boards);
