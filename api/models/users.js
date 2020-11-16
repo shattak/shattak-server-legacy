@@ -26,7 +26,6 @@ const users = mongoose.Schema({
   },
   phone_number: {
     type: Number,
-    unique: true,
   },
   date_of_birth: {
     type: Date,
