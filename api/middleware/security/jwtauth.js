@@ -16,12 +16,14 @@ module.exports = (req, res, next) => {
 
     console.log("[DEBUG 17]\t decode >> " + decoded);
     console.log("[DEBUG 18]\t JTW Authintication Successfull");
+    console.log("-----------------------------------------------------------------");
     return next();
   }
   catch (err) {
     console.log("[DEBUG 22]\t" + err);
     error = new Error("web token authentication fail")
     error.status = 401;
+    console.log("-----------------------------------------------------------------");
     return next(error);
   }
 };

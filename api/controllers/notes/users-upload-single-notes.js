@@ -13,23 +13,21 @@ const path = require("path");
 const multer = require("multer");
 var aws = require("aws-sdk");
 var multerS3 = require("multer-s3");
-
 const jwt = require("jsonwebtoken");
-
-
 const notesDB = require("../../models/notes");
 
 // AWS S3 setups
 var s3 = new aws.S3({
   accessKeyId: process.env.AWSaccessKeyId,
   secretAccessKey: process.env.AWSsecretAccessKey,
-  Bucket: "shattak",
+  Bucket: process.env.S3Bucket,
 });
+
 
 // AWS bucket Storage Engine
 var bucketStorage = multerS3({
   s3: s3,
-  bucket: "shattak",
+  bucket: process.env.S3Bucket,
 
   metadata: function (req, file, cb) {
     cb(null, { fieldName: file.fieldname });
@@ -39,32 +37,28 @@ var bucketStorage = multerS3({
     cb(
       null,
       "notes/" +
-        file.fieldname +
+        file.originalname +
         "-" +
         Date.now() +
-        "-" +
-        "random-key-o" +
+        "-shattak-notes-" +
+        Math.floor(Math.random() * 10000000001) +
         extname
     );
   },
-  // location: "location",
-
-  // acl: "acl",
-  // contentType: "contentType",
-
-  // etag: "etag",
-  // contentDisposition: "contentDisposition",
-  // storageClass: "storageClass",
-  // versionId: "versionId",
 });
 
 // Check File Type AND File Filter
 var fileFilter = (req, file, cb) => {
-  console.log("[DEBUG 32]\tfileFilter");
-  const filetypes = /pdf|doc|docx|ppt|pptx/; // Allowed ext
-  const extname = filetypes.test(path.extname(file.originalname).toLowerCase()); // Check ext
-  const mimetype = filetypes.test(file.mimetype);
+  console.log("[DEBUG 1]\tfileFilter");
 
+  console.log("[DEBUG 2]\t" + path.extname(file.originalname).toLowerCase());
+  console.log("[DEBUG 2.1]\t" + file.mimetype);
+
+  const fileExtensionType = /doc|docx|ppt|pptx|xls|xlsx|pdf/; // Allowed ext
+  const fileMimeType = /msword|vnd.openxmlformats-officedocument.wordprocessingml.document|vnd.ms-powerpoint|vnd.openxmlformats-officedocument.presentationml.presentation|vnd.ms-excel|vnd.openxmlformats-officedocument.spreadsheetml.sheet|pdf/;
+  const extname = fileExtensionType.test(path.extname(file.originalname).toLowerCase()); // Check ext
+  const mimetype = fileMimeType.test(file.mimetype);
+  console.log("[DEBUG 2.2]\t" + "mimetype " + mimetype + " extname " + extname);
   if (mimetype && extname) {
     return cb(null, true);
   } else {
@@ -86,44 +80,38 @@ var uploader = multer({
 }).single("singlenote");
 
 exports.post_users_upload_single_notes = (req, res, next) => {
-  console.log("[DEBUG 10]\t" + "get_users_upload_notes");
-  console.log(JSON.stringify(req.body));
-
+  console.log("[DEBUG 3]\t" + "get_users_upload_notes");
+  console.log("[DEBUG 4]\t" + "req.body" + JSON.stringify(req.body));
+  console.log("[DEBUG 5]\t" + "Uploader");
   uploader(req, res, function (err) {
-    console.log(JSON.stringify(req.body));
+    console.log("[DEBUG 6]\t" + JSON.stringify(req.file));
 
     var token = JSON.stringify(req.headers.authorization.split(" ")[1]);
     token = token.slice(1, -1);
     var decoded = jwt.decode(token, { complete: true });
-    console.log(decoded.payload._user_id);
+    console.log("[DEBUG 7]\t" + "user id " + decoded.payload._user_id);
 
-
-    console.log("uploader");
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
-      console.log("err");
+      console.log("[DEBUG 8]\t" + "err");
       return next(err);
     } else if (err) {
       // An unknown error occurred when uploading.
-      console.log("err");
+      console.log("[DEBUG 9]\t" + "err");
       return next(err);
     } else if (req.file === undefined) {
-      console.log("Error: No File Selected!");
+      console.log("[DEBUG 10]\t" + "Error: No File Selected!");
       const err = new Error("No File Selected!");
       return next(err);
     } else {
-
-
-
-
       // suscessfuly uplodes on AWS S3
-      console.log(req.file);
+      console.log("[DEBUG 11]\t" + req.file);
       const notes = new notesDB({
         _id: mongoose.Types.ObjectId(),
-        
-        _users_id: decoded.payload._user_id, 
 
-        _institutes_id : req.body._institutes_id,
+        _users_id: decoded.payload._user_id,
+
+        _institutes_id: req.body._institutes_id,
         _departments_id: req.body._departments_id,
         _subjects_id: req.body._subjects_id,
         topic_name: req.body.topic_name,
@@ -154,7 +142,7 @@ exports.post_users_upload_single_notes = (req, res, next) => {
       notes
         .save()
         .then((result) => {
-          res.status(200).json({ masg: "succesfull", file: req.file , result});
+          res.status(200).json({ masg: "succesfull", file: req.file, result });
         })
         .catch((error) => {
           return next(error);
