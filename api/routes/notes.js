@@ -10,9 +10,9 @@ router.put("/edit-notes-info-by-id",edit_notes_info_by_id.put_edit_notes_info_by
 const fetch_all_notes_info = require("../controllers/notes/fetch-all-notes-info");
 router.get("/fetch-all-notes-info",fetch_all_notes_info.get_fetch_all_notes_info);
 
-//ROUTE     GET      fetch-notes-by-id      
+//ROUTE     POST      fetch-notes-by-id      
 const fetch_notes_by_id   = require("../controllers/notes/fetch-notes-by-id");
-router.get("/fetch-notes-by-id",fetch_notes_by_id.get_fetch_notes_by_id);
+router.post("/fetch-notes-by-id",fetch_notes_by_id.post_fetch_notes_by_id);
 
 //ROUTE     DELETE   remove-notes-by-id     
 const remove_notes_by_id  = require("../controllers/notes/remove-notes-by-id");

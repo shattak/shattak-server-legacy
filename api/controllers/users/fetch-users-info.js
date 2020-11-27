@@ -6,13 +6,18 @@
  */
 
 const usersDB = require("../../models/users");
-
-exports.get_fetch_users_info_by_id = (req, res, next) => {
+const jwt = require("jsonwebtoken");
+exports.post_fetch_users_info = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch_users_info");
+
+
+  var token = JSON.stringify(req.headers.authorization.split(" ")[1]);
+  token = token.slice(1, -1);
+  var decoded = jwt.decode(token, { complete: true });
 
   usersDB
     .find({
-      _id: req.body._users_id,
+      _id: decoded.payload._user_id,
     })
     .exec()
     .then((result) => {

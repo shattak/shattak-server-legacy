@@ -26,11 +26,11 @@ router.put("/edit-profile-photo", edit_profile_photo.put_edit_profile_photo);
 const edit_users_info = require("../controllers/users/edit-users-info");
 router.put("/edit-users-info", edit_users_info.put_edit_users_info);
 
-//ROUTE     GET      fetch-users-info-by-id
-const fetch_users_info_by_id = require("../controllers/users/fetch-users-info-by-id");
-router.get(
-  "/fetch-users-info-by-id",
-  fetch_users_info_by_id.get_fetch_users_info_by_id
+//ROUTE     post      fetch-users-info
+const fetch_users_info = require("../controllers/users/fetch-users-info");
+router.post(
+  "/fetch-users-info",
+  fetch_users_info.post_fetch_users_info
 );
 
 module.exports = router;
