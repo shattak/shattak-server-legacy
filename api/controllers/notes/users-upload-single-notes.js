@@ -54,8 +54,8 @@ var fileFilter = (req, file, cb) => {
   console.log("[DEBUG 2]\t" + path.extname(file.originalname).toLowerCase());
   console.log("[DEBUG 2.1]\t" + file.mimetype);
 
-  const fileExtensionType = /doc|docx|ppt|pptx|xls|xlsx|pdf/; // Allowed ext
-  const fileMimeType = /msword|vnd.openxmlformats-officedocument.wordprocessingml.document|vnd.ms-powerpoint|vnd.openxmlformats-officedocument.presentationml.presentation|vnd.ms-excel|vnd.openxmlformats-officedocument.spreadsheetml.sheet|pdf/;
+  const fileExtensionType = /doc|docx|ppt|pptx|xls|xlsx|pdf|ppsx|pps|odt/; // Allowed ext
+  const fileMimeType = /msword|vnd.openxmlformats-officedocument.wordprocessingml.document|vnd.ms-powerpoint|vnd.openxmlformats-officedocument.presentationml.presentation|vnd.ms-excel|vnd.openxmlformats-officedocument.spreadsheetml.sheet|pdf|vnd.openxmlformats-officedocument.presentationml.slideshow|vnd.ms-powerpoint|mspowerpoint|vnd.oasis.opendocument.text/;
   const extname = fileExtensionType.test(path.extname(file.originalname).toLowerCase()); // Check ext
   const mimetype = fileMimeType.test(file.mimetype);
   console.log("[DEBUG 2.2]\t" + "mimetype " + mimetype + " extname " + extname);

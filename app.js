@@ -45,7 +45,7 @@ app.use(express.json());
 
 
 //database
-mongoose = require("mongoose");
+const mongoose = require("mongoose");
 mongoose.pluralize(null);
 mongoose
   .connect(process.env.MONGO_DB_CONNECTION, {
