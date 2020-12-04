@@ -72,14 +72,15 @@ app.use("/api/authentications",require("./api/routes/authentications"))
 app.use("/api/users",require("./api/routes/users"))
 app.use("/api/notes",require("./api/routes/notes"))
 
+
 // Management rought v1
-app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
+// app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
 
 
-
-// Public static files
-const pub = __dirname.substring(0, __dirname.indexOf("server")) + "public/*";
-app.use("/public", express.static(pub));
+// // Public static files
+// const pub = __dirname.substring(0, __dirname.indexOf("server")) + "public/*";
+// console.log(pub);
+// app.use("/public", express.static(pub));
 
 //frontend static react index
 const path = require("path");

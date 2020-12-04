@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const jwtauth = require("../middleware/security/jwtauth");
+const jwtauth = require("../middlewares/security/jwtauth");
 
 //ROUTE     PUT      edit-notes-info-by-id  
 const  edit_notes_info_by_id  = require("../controllers/notes/edit-notes-info-by-id");

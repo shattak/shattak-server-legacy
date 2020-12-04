@@ -1,4 +1,11 @@
 const notesDB = require("../../models/notes");
+require('../../models/education-structure/institutes');
+require('../../models/education-structure/departments');
+require('../../models/education-structure/courses');
+require('../../models/education-structure/subjects');
+require('../../models/users');
+
+
 
 exports.get_fetch_all_notes_info = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch_all_notes_info");

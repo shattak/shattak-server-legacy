@@ -5,9 +5,9 @@ const router = express.Router();
 const {
   userValidationRules,
   validate,
-} = require("../middleware/validator/authentications");
+} = require("../middlewares/validator/authentications");
  
-const jwtauth = require("../middleware/security/jwtauth");
+const jwtauth = require("../middlewares/security/jwtauth");
 
 //ROUTE   put   authentications // change-users-password
 const change_users_password = require("../controllers/authentications/change-users-password");

@@ -8,7 +8,7 @@
 const authenticationsDB = require("../../models/authentications");
 const usersDB = require("../../models/users");
 
-const nodemailer = require("../../helper/nodemailer");
+const nodemailer = require("../../helpers/nodemailer");
 
 
 exports.post_verify_users_email = (req, res, next) => {

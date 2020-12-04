@@ -16,6 +16,11 @@ var multerS3 = require("multer-s3");
 const jwt = require("jsonwebtoken");
 const notesDB = require("../../models/notes");
 
+require('../../models/education-structure/institutes');
+require('../../models/education-structure/departments');
+require('../../models/education-structure/courses');
+require('../../models/education-structure/subjects');
+
 // AWS S3 setups
 var s3 = new aws.S3({
   accessKeyId: process.env.AWSaccessKeyId,

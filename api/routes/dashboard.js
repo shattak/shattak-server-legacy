@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const activation = require("../middleware/security/activation");
+const activation = require("../middlewares/security/activation");
 
 
 //ROUTE     POST       add-institute  
