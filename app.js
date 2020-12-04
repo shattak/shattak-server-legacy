@@ -74,7 +74,7 @@ app.use("/api/notes",require("./api/routes/notes"))
 
 
 // Management rought v1
-// app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
+app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
 
 
 // // Public static files

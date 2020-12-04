@@ -2,6 +2,14 @@ const coursesDB = require("../../models/education-structure/courses");
 const departmentsDB = require("../../models/education-structure/departments");
 const institutesDB = require("../../models/education-structure/institutes");
 
+
+require('../../models/education-structure/institutes');
+require('../../models/education-structure/departments');
+require('../../models/education-structure/courses');
+require('../../models/education-structure/subjects');
+
+
+
 exports.post_add_course = (req, res, next) => {
   console.log("[DEBUG 10]\t" + " add courses ");
 

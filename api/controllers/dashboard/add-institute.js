@@ -1,5 +1,10 @@
 const institutesDB = require("../../models/education-structure/institutes");
 
+require('../../models/education-structure/institutes');
+require('../../models/education-structure/departments');
+require('../../models/education-structure/courses');
+require('../../models/education-structure/subjects');
+
 exports.post_add_institute = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "post_add_institute ");
 
