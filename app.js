@@ -15,7 +15,8 @@ const express = require("express");
 const app = express();
 
 //dotenv
-require("dotenv").config();
+require('dotenv').config({ path: '.env' })
+
 
 //morgan Devolepment
 const morgan = require("morgan");
