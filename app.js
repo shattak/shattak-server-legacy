@@ -16,6 +16,9 @@ const app = express();
 
 //dotenv
 require('dotenv').config({ path: '.env' })
+// console.log(process.env);
+console.log('The value of PORT is by env:', process.env.PORT);
+
 
 
 //morgan Devolepment
