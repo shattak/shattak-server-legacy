@@ -41,11 +41,10 @@ var bucketStorage = multerS3({
     const extname = path.extname(file.originalname).toLowerCase();
     cb(
       null,
-      "notes/" +
-        file.originalname +
+        file.originalname.replace(/\s/g, '') +
         "-" +
         Date.now() +
-        "-shattak-notes-" +
+        "-shattak-" +
         Math.floor(Math.random() * 10000000001) +
         extname
     );
