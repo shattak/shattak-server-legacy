@@ -90,7 +90,9 @@ app.use("/management/v1/dashboard",require("./api/routes/dashboard"))
 const path = require("path");
 app.use(express.static(path.join(__dirname, "build")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/build/index.html"));
+ res.status(200).json({
+   MASSAGE : "THSI IS SHATTAK API"
+ })
 });
 
 //error handeller
