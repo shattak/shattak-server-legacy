@@ -1,0 +1,17 @@
+PORT = 
+
+MONGO_DB_CONNECTION = 
+
+ACCESS = 
+
+AWSaccessKeyId =
+
+AWSsecretAccessKey = 
+
+MONGO_DB_CONNECTION = 
+
+PORT = 9001
+
+REFRESH = 
+
+S3Bucket =
