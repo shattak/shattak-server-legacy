@@ -38,8 +38,9 @@ app.use(express.json());
  // Add headers
 app.use(function (req, res, next) {
 
+  console.log("x-x-x-x-x-x-x-x-x-x-x-cors x-x-x-x-x-x-x-x-x-x-x-x-x-x ");
   // Website you wish to allow to connect
-  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8888');
+  res.setHeader('Access-Control-Allow-Origin', '*');
 
   // Request methods you wish to allow
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -50,9 +51,10 @@ app.use(function (req, res, next) {
   // Set to true if you need the website to include cookies in the requests sent
   // to the API (e.g. in case you use sessions)
   res.setHeader('Access-Control-Allow-Credentials', true);
-
+  
   // Pass to next layer of middleware
   next();
+
 });
 
 //  const MongoClient = require('mongodb').MongoClient;
