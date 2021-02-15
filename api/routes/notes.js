@@ -22,4 +22,7 @@ router.delete("/remove-notes-by-id",remove_notes_by_id.delete_remove_notes_by_id
 const users_upload_single_notes  = require("../controllers/notes/users-upload-single-notes");
 router.post("/users-upload-single-notes", jwtauth ,users_upload_single_notes.post_users_upload_single_notes);
 
+//ROUTE     POST    obtain_notes_link_by_note_id    
+const obtain_notes_link_by_note_id  = require("../controllers/notes/obtain-notes-link-by-note-id");
+router.post("/obtain-notes-link-by-note-id" ,obtain_notes_link_by_note_id.post_obtain_notes_link_by_note_id);
 module.exports = router;
