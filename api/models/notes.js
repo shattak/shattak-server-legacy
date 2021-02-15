@@ -21,17 +21,24 @@ const notes = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "subjects",
   },
+  institutes_name: {
+    type: String,
+  },
+  departments_name: {
+    type: String,
+  },
+  subjects_name: {
+    type: String,
+  },
   topic_name: {
     type: String,
     required: true,
   },
   level: {
     type: String,
-  
   },
   field: {
     type: String,
-
   },
 
   tag: [
@@ -65,8 +72,5 @@ const notes = new Schema({
     },
   ],
 });
-
-
-
 
 module.exports = mongoose.model("notes", notes);
