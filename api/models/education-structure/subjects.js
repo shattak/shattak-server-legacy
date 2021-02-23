@@ -3,7 +3,10 @@ const { Schema } = mongoose;
 
 const subjects = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
-
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
   _departments_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "departments",

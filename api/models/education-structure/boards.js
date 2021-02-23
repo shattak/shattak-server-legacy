@@ -3,6 +3,10 @@ const { Schema } = mongoose;
 
 const boards = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
   name: {
     type: String,
     unique : true,

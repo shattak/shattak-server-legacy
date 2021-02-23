@@ -3,6 +3,10 @@ const { Schema } = mongoose;
 
 const courses = new Schema({
   _id: mongoose.Schema.Types.ObjectId,
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
   _institutes_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "institutes",
