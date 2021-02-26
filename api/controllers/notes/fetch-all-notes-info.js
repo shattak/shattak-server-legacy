@@ -9,8 +9,18 @@ require('../../models/users');
 
 exports.get_fetch_all_notes_info = (req, res, next) => {
   console.log("[DEBUG 10]\t" + "get_fetch_all_notes_info");
+ 
+  let PageLimit = 6; 
+
+  var pgnum = req.query.pg;
+
+ var skiping = (pgnum - 1) * PageLimit;
+ 
+
   notesDB
     .find({})
+    .skip(skiping)
+    .limit(PageLimit)
     .populate({
       path: "_users_id",
       select: "users_name email",
@@ -24,6 +34,7 @@ exports.get_fetch_all_notes_info = (req, res, next) => {
     .populate({
       path: "_subjects_id",
     })
+
     .exec()
     .then((result) => {
       res.status(200).json({
