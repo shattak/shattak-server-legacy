@@ -38,7 +38,7 @@ app.use(express.json());
  // Add headers
 app.use(function (req, res, next) {
 
-  console.log("x-x-x-x-x-x-x-x-x-x-x-cors x-x-x-x-x-x-x-x-x-x-x-x-x-x ");
+  console.log("\n x-x-x-x-x-x-x-x-x-x-x-cors x-x-x-x-x-x-x-x-x-x-x-x-x-x \n");
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', process.env.CORS);
 
@@ -96,6 +96,7 @@ mongoose
 app.use("/api/authentications",require("./api/routes/authentications"))
 app.use("/api/users",require("./api/routes/users"))
 app.use("/api/notes",require("./api/routes/notes"))
+app.use("/api/search",require("./api/routes/search"))
 
 
 // Management rought v1
