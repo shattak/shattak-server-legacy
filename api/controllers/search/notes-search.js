@@ -10,7 +10,7 @@ exports.get_notes_search = (req, res, next) => {
 
   var regexQuery = {
     topic_name: new RegExp(SearchQuery, "i"),
-    level: new RegExp(SearchQuery, "i"),
+
   };
 
   console.log(typeof SearchQuery + "====" + SearchQuery);
