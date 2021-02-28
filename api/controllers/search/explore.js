@@ -96,7 +96,7 @@ exports.get_explore = async (req, res, next) => {
     fainalresultbk = fainalresult;
     fainalresult = [];
     return res.status(200).json({
-      explore: fainalresultbk,
+      result: fainalresultbk,
     });
   }
 };
