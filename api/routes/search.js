@@ -17,4 +17,8 @@ router.get("/subject-search", subject_search.get_subject_search);
 const users_search = require("../controllers/search/users-search");
 router.get("/users-search", users_search.get_users_search);
 
+//ROUTE     get    users-search
+const explore = require("../controllers/search/explore");
+router.get("/explore", explore.get_explore);
+
 module.exports = router;
