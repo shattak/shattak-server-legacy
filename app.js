@@ -97,6 +97,7 @@ app.use("/api/authentications",require("./api/routes/authentications"))
 app.use("/api/users",require("./api/routes/users"))
 app.use("/api/notes",require("./api/routes/notes"))
 app.use("/api/search",require("./api/routes/search"))
+app.use("/api/follow",require("./api/routes/follow"))
 
 
 // Management rought v1
