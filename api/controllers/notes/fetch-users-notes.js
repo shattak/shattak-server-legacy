@@ -6,13 +6,13 @@ require("../../models/education-structure/subjects");
 
 const jwt = require("jsonwebtoken");
 
-exports.post_fetch_notes_by_users_id = (req, res, next) => {
+exports.post_fetch_users_notes = (req, res, next) => {
 
   var token = JSON.stringify(req.headers.authorization.split(" ")[1]);
   token = token.slice(1, -1);
   var decoded = jwt.decode(token, { complete: true });
 
-  console.log("[DEBUG 10]\t" + "post_notes_by_users_id");
+  console.log("[DEBUG 10]\t" + "post_fetch_users_notes");
   notesDB
     .find({
         "_users_id" : decoded.payload._user_id,

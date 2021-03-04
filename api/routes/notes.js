@@ -28,8 +28,8 @@ router.post("/obtain-notes-link-by-note-id" ,obtain_notes_link_by_note_id.post_o
 
 
 //ROUTE     POST    post_fetch_notes_by_users_id  
-const fetch_notes_by_users_id   = require("../controllers/notes/fetch-notes-by-users-id");
-router.post("/fetch-notes-by-users-id" ,fetch_notes_by_users_id.post_fetch_notes_by_users_id );
+const fetch_users_notes   = require("../controllers/notes/fetch-users-notes");
+router.post("/fetch-users-notes" , fetch_users_notes.post_fetch_users_notes );
 
 
 module.exports = router;
