@@ -28,9 +28,11 @@ router.put("/edit-users-info", edit_users_info.put_edit_users_info);
 
 //ROUTE     post      fetch-users-info
 const fetch_users_info = require("../controllers/users/fetch-users-info");
-router.post(
-  "/fetch-users-info",
-  fetch_users_info.post_fetch_users_info
+router.post("/fetch-users-info",fetch_users_info.post_fetch_users_info
 );
+
+//ROUTE     post      fetch-users-info
+const fetch_users_info_by_id= require("../controllers/users/fetch-users-info-by-id");
+router.post("/fetch-users-info-by-id",fetch_users_info_by_id.post_fetch_users_info_by_id);
 
 module.exports = router;
