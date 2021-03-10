@@ -19,5 +19,7 @@ const departments = new Schema({
   },
 });
 
+departments.index({ name: 1, _boards_id: 1 }, { unique: true });
+
 module.exports = mongoose.model("departments", departments);
 
