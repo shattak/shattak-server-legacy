@@ -16,7 +16,7 @@ exports.post_fetch_subjects_info_with_id = (req, res, next) => {
     var query = {};
   } else {
     var query = {
-      _departments_id: req.body._departments_id,
+      _id: req.body._id,
     };
   }
 
