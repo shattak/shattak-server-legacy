@@ -3,26 +3,26 @@ const router = express.Router();
 const activation = require("../middlewares/security/activation");
 
 
-//ROUTE     POST       add-institute  
-const  add_institute  = require("../controllers/dashboard/add-institute");
-router.post("/add-institute", activation, add_institute.post_add_institute );
+// //ROUTE     POST       add-institute  
+// const  add_institute  = require("../controllers/dashboard/add-institute");
+// router.post("/add-institute", activation, add_institute.post_add_institute );
 
-//ROUTE     POST      add-boards     
-const  add_boards  = require("../controllers/dashboard/add-boards");
-router.post("/add-boards", activation, add_boards.post_add_boards );
+// //ROUTE     POST      add-boards     
+// const  add_boards  = require("../controllers/dashboard/add-boards");
+// router.post("/add-boards", activation, add_boards.post_add_boards );
 
-//ROUTE     POST      add-department  
-const  add_department  = require("../controllers/dashboard/add-department");
-router.post("/add-department", activation, add_department.post_add_department  );
+// //ROUTE     POST      add-department  
+// const  add_department  = require("../controllers/dashboard/add-department");
+// router.post("/add-department", activation, add_department.post_add_department  );
 
-//ROUTE     POST      add-subjects  
-const  add_subjects  = require("../controllers/dashboard/add-subjects");
-router.post("/add-subjects", activation, add_subjects.post_add_subjects );
+// //ROUTE     POST      add-subjects  
+// const  add_subjects  = require("../controllers/dashboard/add-subjects");
+// router.post("/add-subjects", activation, add_subjects.post_add_subjects );
 
 
-//ROUTE     POST      add-course  
-const  add_course  = require("../controllers/dashboard/add-course");
-router.post("/add-course", activation, add_course.post_add_course );
+// //ROUTE     POST      add-course  
+// const  add_course  = require("../controllers/dashboard/add-course");
+// router.post("/add-course", activation, add_course.post_add_course );
 
 
 
