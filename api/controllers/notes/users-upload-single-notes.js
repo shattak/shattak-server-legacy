@@ -72,7 +72,7 @@ var fileFilter = (req, file, cb) => {
 
 // AWS file limite
 var limits = {
-  fileSize: 10000000,
+  fileSize: 100000000,
   files: 100,
 };
 
