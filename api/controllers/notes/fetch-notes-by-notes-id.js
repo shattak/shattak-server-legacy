@@ -8,7 +8,7 @@ require("../../models/education-structure/subjects");
 
 exports.post_fetch_notes_by_notes_id = (req, res, next) => {
 
-  console.log("[DEBUG 10]\t" + "fetch-notes-by-users-id");
+  console.log("[DEBUG 10]\t" + "post_fetch_notes_by_notes_id");
   notesDB
     .find({
         "_id" : req.body._id

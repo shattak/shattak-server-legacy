@@ -19,6 +19,7 @@ exports.get_fetch_all_notes_info = (req, res, next) => {
 
   notesDB
     .find({})
+    .sort({ _id: -1 })
     .skip(skiping)
     .limit(PageLimit)
     .populate({
