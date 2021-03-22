@@ -46,6 +46,6 @@ exports.put_edit_notes_info_by_users = (req, res, next) => {
       }
     })
     .catch((error) => {
-      return next(errors);
+      return next(error);
     });
 };
