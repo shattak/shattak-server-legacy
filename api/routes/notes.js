@@ -2,11 +2,11 @@ const express = require("express");
 const router = express.Router();
 const jwtauth = require("../middlewares/security/jwtauth");
 
-//ROUTE     PUT      edit-notes-info-by-id
-const edit_notes_info_by_id = require("../controllers/notes/edit-notes-info-by-id");
+//ROUTE     PUT      edit-notes-info-by-users
+const edit_notes_info_by_users = require("../controllers/notes/edit-notes-info-by-users");
 router.put(
-  "/edit-notes-info-by-id",
-  edit_notes_info_by_id.put_edit_notes_info_by_id
+  "/edit-notes-info-by-users",
+  edit_notes_info_by_users.put_edit_notes_info_by_users
 );
 
 //ROUTE     GET      fetch-all-notes-info

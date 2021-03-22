@@ -122,7 +122,6 @@ exports.post_users_upload_single_notes = (req, res, next) => {
         institutes_name : req.body.institutes_name,
         departments_name : req.body.departments_name,
         subjects_name : req.body.subjects_name,
-        topic_name: req.body.topic_name,
         level: req.body.level,
         field: req.body.field,
         tag: [],
