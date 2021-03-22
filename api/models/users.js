@@ -35,40 +35,8 @@ const users = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
-  profile_photo: [
-    {
-      file: {
-        type: String,
-      },
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-      location: {
-        type: String,
-      },
-      current: {
-        type: Boolean,
-      },
-    },
-  ],
-  cover_photo: [
-    {
-      file: {
-        type: String,
-      },
-      date: {
-        type: Date,
-        default: Date.now,
-      },
-      location: {
-        type: String,
-      },
-      current: {
-        type: Boolean,
-      },
-    },
-  ],
+
+
 });
 
 module.exports = mongoose.model("users", users);
