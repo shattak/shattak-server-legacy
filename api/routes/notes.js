@@ -6,6 +6,7 @@ const jwtauth = require("../middlewares/security/jwtauth");
 const edit_notes_info_by_users = require("../controllers/notes/edit-notes-info-by-users");
 router.put(
   "/edit-notes-info-by-users",
+  jwtauth,
   edit_notes_info_by_users.put_edit_notes_info_by_users
 );
 
