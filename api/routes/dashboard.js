@@ -51,7 +51,7 @@ router.post("/fetch-subjects-info-with-id", fetch_subjects_info_with_id.post_fet
 const  fetch_subjects_info_by_deparment_id  = require("../controllers/dashboard/fetch-subjects-info-by-deparment-id");
 router.post("/fetch-subjects-info-by-deparment-id", fetch_subjects_info_by_deparment_id.post_fetch_subjects_info_by_deparment_id);
 
-
+ 
 
 
 
