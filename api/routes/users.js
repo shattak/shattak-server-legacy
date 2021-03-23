@@ -24,7 +24,7 @@ router.put("/edit-profile-photo", edit_profile_photo.put_edit_profile_photo);
 
 //ROUTE     PUT      edit-users-info
 const edit_users_info = require("../controllers/users/edit-users-info");
-router.put("/edit-users-info", edit_users_info.put_edit_users_info);
+router.put("/edit-users-info",jwtauth, edit_users_info.put_edit_users_info);
 
 //ROUTE     post      fetch-users-info
 const fetch_users_info = require("../controllers/users/fetch-users-info");
