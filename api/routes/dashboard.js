@@ -47,7 +47,7 @@ router.post("/fetch-institute-info-with-id", fetch_institute_info_with_id.post_f
 const  fetch_subjects_info_with_id  = require("../controllers/dashboard/fetch-subjects-info-with-id");
 router.post("/fetch-subjects-info-with-id", fetch_subjects_info_with_id.post_fetch_subjects_info_with_id);
 
-//ROUTE     POST     fetch-subjects-info-with-id
+//ROUTE     POST     fetch-subjects-info-by-deparment-id    
 const  fetch_subjects_info_by_deparment_id  = require("../controllers/dashboard/fetch-subjects-info-by-deparment-id");
 router.post("/fetch-subjects-info-by-deparment-id", fetch_subjects_info_by_deparment_id.post_fetch_subjects_info_by_deparment_id);
 
